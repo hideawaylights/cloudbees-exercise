@@ -1,0 +1,330 @@
+// Global mixin library
+
+//////// Sections ////////
+// 1. Organize this file pending
+// 2. ...
+// 3. ...
+// 4. ...
+//////// ////////
+
+
+
+// Box Shadow
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 2px, $spread: 0, $color: rgba(0,0,0, .15), $inset: "") {
+	@if ($inset != "") {
+		box-shadow: $inset $x $y $blur $spread $color;
+	} @else {
+		box-shadow: $x $y $blur $spread $color;
+		}
+	}
+
+
+// Box Sizing remove
+@mixin box-sizing { box-sizing: border-box; }
+
+
+// Radius Settings
+@mixin border-radius($radius: 2px) {
+	border-radius: $radius;
+	background-clip: padding-box;  // stops bg color from revealing outside the border:
+	}
+
+
+// Material Card Shadowing
+@mixin depth($ui-depth: two) {
+
+	@if ($ui-depth == base) {
+		// OFF box-shadow: 0 0 1px rgba(0, 0, 0, 0.08), 0 0 3px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 0 2px rgba(0,0,0,0.05), 0 0 2px rgba(0,0,0,0.18);
+
+    } @if ($ui-depth == one) {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 0 4px rgba(0,0,0,0.1);
+        // NEW box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24);
+
+	} @if ($ui-depth == two) {
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 0 4px rgba(0,0,0,0.1);
+        // NEW box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+	} @if ($ui-depth == three) {
+		// OFF box-shadow: 0 3px 6px rgba(0,0,0,0.1), 0 -2px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 3px 13px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.18);
+
+	} @if ($ui-depth == four) {
+		// OFF box-shadow: 0 8px 18px rgba(0,0,0,0.16), 0 -5px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 22px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+	} @if ($ui-depth == five) {
+		// OFF box-shadow: 0 10px 24px rgba(0,0,0,0.22), 0 -8px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+    } @if ($ui-depth == none) {
+        box-shadow: none;
+
+    }
+
+	background-clip: 		padding-box;  // stops bg color from revealing outside the border:
+	box-sizing: 		border-box;
+	}
+
+
+// Absolutely or fixed positioned centered content X-Y access
+@mixin centered-positioning($position-type: absolute, $translate-x-position: -50%, $translate-y-position: -50%) {
+	top: 50%;
+	left: 50%;
+	position: $position-type;
+  	transform: translate($translate-x-position, $translate-y-position);
+	box-sizing: border-box;
+	}
+
+
+// Image overlay opacity styles
+@mixin image-overlay($size: three, $color: #000000) {
+    display: block;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: $z-index-2;
+
+	@if ($size == one) {
+		box-shadow: inset 0 0 200px 0 rgba($color, .2);
+        background-color: rgba($color, .1);
+
+    } @if ($size == two) {
+        box-shadow: inset 0 10px 500px 0 rgba($color, .3);
+        background-color: rgba($color, .2);
+
+	} @if ($size == three) {
+		box-shadow: inset 0 10px 1000px 0 rgba($color, .5);
+        background-color: rgba($color, .4);
+
+	} @if ($size == four) {
+		box-shadow: inset 0 10px 2000px 0 rgba($color, .9);
+        background-color: rgba($color, .6);
+
+	} @if ($size == five) {
+		box-shadow: inset 0 10px 2000px 0 rgba($color, .9);
+        background-color: rgba($color, .8);
+	   }
+
+	}
+
+
+// Remove any inherted styles
+@mixin reset-inheritance {
+	color: $base-font-color;
+	background-color: transparent;
+	font-weight: 300;
+	font-size: map-get($typography, base-font-size);
+	font-family: map-get($typography, roboto);
+	line-height: 1;
+	vertical-align: baseline;
+	padding: 0;
+	margin: 0;
+	border-style: none;
+	}
+
+
+// Transform remove
+@mixin transform-none { transform: none; }
+
+
+// Transform rotate
+@mixin transform-rotate($rotation: 90deg) {
+	transform: rotate($rotation);
+	transform-origin: 50% 50%;
+	}
+
+
+// Transitions remove
+@mixin transitions-none { transition: none; }
+
+
+// Translate x and y axis
+@mixin translateX-Y($translate-x-position: -50%, $translate-y-position: -50%) {
+  	transform: translate($translate-x-position, $translate-y-position);
+	}
+
+// Global transitions mixin
+@mixin transitions-all($transition-speed: $global-transition-speed, $global-transition-type: all, $effect: ease-out) {
+	transition: $transition-speed $global-transition-type $effect;
+	}
+
+
+// Generates either a min width, max-width, range, or retina media query
+//
+// $media-query - One of four keywords: "retina", "min", "max", "minmax". Depending on the word you will get that type of media query output.
+// $res		    - The size for the breakpoint. Oftern this references a predefined variable. You should probably not have actual values in this field.
+// $res2        - Same as $res and only used for minmax media queries to get a range. $res is starting point and $res2 is ending point of the range.
+//
+// Compatible in IE9+, Everything else.
+@mixin media($media-query, $res: 0em, $res2: 0em) {
+  @if $media-query == retina {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+      @content;
+    }
+  }
+
+  @if $media-query == min {
+    @media screen and (min-width: $res) {
+      @content;
+    }
+  }
+
+  @if $media-query == max {
+    @media screen and (max-width: $res) {
+      @content;
+    }
+  }
+
+  @if $media-query == minmax {
+    @media screen and (min-width: $res) and (max-width: $res2) {
+      @content;
+    }
+  }
+}
+
+// - - attention
+// adds accessibility pseudo selectors to hover states.
+@mixin attention() {
+
+    &:hover, &:active, &:focus {
+        @content;
+        }
+
+    }
+
+
+// Utility for fitting content and images to parent container
+@mixin object-fit($type: fill) {
+	@if $type == fill {
+		object-fit: fill;
+		width: auto;
+		height: auto;
+		}
+
+	@else if $type == cover {
+		object-fit: cover;
+		}
+
+	@else if $type == contain {
+		object-fit: contain;
+		}
+
+	@else if  $type == scale-down {
+		object-fit: scale-down;
+		}
+
+	@else if  $type == none {
+		object-fit: none;
+		}
+
+	}
+
+
+// Mixins > truncate text
+@mixin truncate($width: 100%) {
+    width: $width;
+    max-width: 100%;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
+
+
+// Mixins > soft gradient overlay
+@mixin gradient-overlay($opacity: 0.5) {
+    background: rgba(0,0,0,$opacity);
+    background: -moz-linear-gradient(top, rgba(0,0,0,$opacity) 0%, rgba(0,0,0,0.22) 54%, rgba(23,23,23,0) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,$opacity)), color-stop(54%, rgba(0,0,0,0.22)), color-stop(100%, rgba(23,23,23,0)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,$opacity) 0%, rgba(0,0,0,0.22) 54%, rgba(23,23,23,0) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,$opacity) 0%, rgba(0,0,0,0.22) 54%, rgba(23,23,23,0) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,$opacity) 0%, rgba(0,0,0,0.22) 54%, rgba(23,23,23,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,$opacity) 0%, rgba(0,0,0,0.22) 54%, rgba(23,23,23,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#171717', GradientType=0 );
+    }
+
+@mixin gradient-overlay-reverse($opacity: 0.5) {
+    background: rgba(23,23,23,0);
+    background: -moz-linear-gradient(top, rgba(23,23,23,0) 0%, rgba(13,13,13,0.22) 20%, rgba(0,0,0,0.31) 46%, rgba(0,0,0,$opacity) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(23,23,23,0)), color-stop(20%, rgba(13,13,13,0.22)), color-stop(46%, rgba(0,0,0,0.31)), color-stop(100%, rgba(0,0,0,$opacity)));
+    background: -webkit-linear-gradient(top, rgba(23,23,23,0) 0%, rgba(13,13,13,0.22) 20%, rgba(0,0,0,0.31) 46%, rgba(0,0,0,$opacity) 100%);
+    background: -o-linear-gradient(top, rgba(23,23,23,0) 0%, rgba(13,13,13,0.22) 20%, rgba(0,0,0,0.31) 46%, rgba(0,0,0,$opacity) 100%);
+    background: -ms-linear-gradient(top, rgba(23,23,23,0) 0%, rgba(13,13,13,0.22) 20%, rgba(0,0,0,0.31) 46%, rgba(0,0,0,$opacity) 100%);
+    background: linear-gradient(to bottom, rgba(23,23,23,0) 0%, rgba(13,13,13,0.22) 20%, rgba(0,0,0,0.31) 46%, rgba(0,0,0,$opacity) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171717', endColorstr='#000000', GradientType=0 );
+    }
+
+
+// Mixins > Global MediaQueries as utilities
+// NOTE: For media query vars see _vars.scss
+
+// ----- large and up desktop ----- // 2200px +
+@mixin desktop-huge-and-up { @media (min-width: #{$media-large-huge + 1}) { @content; } }
+
+// ----- large and up desktop ----- // 1600px +
+@mixin desktop-large-and-up { @media (min-width: #{$media-large-desktop + 1}) { @content; }  }
+
+// ----- large desktop and below ----- // 1600px
+@mixin desktop-large { @media (min-width: #{$media-large-desktop}) { @content; } }
+
+// ----- default desktop and up ----- // 1124px
+@mixin desktop-and-up { @media (min-width: #{$media-defaut-desktop + 1}) { @content; } }
+
+// ----- default desktop ----- // 1124px
+@mixin desktop { @media (max-width: #{$media-defaut-desktop}) { @content; } }
+
+// ----- small and up desktop ----- // 900px - & up
+@mixin laptop-and-up { @media (min-width: #{$media-desktop-small + 1}) { @content; } }
+
+// ----- small desktop to tablet range ----- // 800px - 900px
+@mixin laptop-range { @media (max-width: #{$media-desktop-small}) and (min-width: #{$media-tablet}) { @content; } }
+
+// ----- tablet and up ----- // 800px - & up
+@mixin tablet-and-up { @media (min-width: #{$media-tablet + 1}) { @content; } }
+
+
+
+// - - - - - - - - - - - - - - @media down
+
+// ----- desktop huge and below ----- // 2200px
+@mixin desktop-huge { @media (max-width: #{$media-huge-desktop}) { @content; } }
+
+// ----- desktop large 3 and below ----- // 1800px
+@mixin desktop-large-3 { @media (max-width: #{$media-large-3-desktop}) { @content; } }
+
+// ----- desktop large 2 and below ----- // 1600px
+@mixin desktop-large-2 { @media (max-width: #{$media-large-2-desktop}) { @content; } }
+
+// ----- desktop large 1 and below ----- // 1380px
+@mixin desktop-large-1 { @media (max-width: #{$media-large-1-desktop}) { @content; } }
+
+// ----- desktop large and below ----- // 1280px
+@mixin desktop-large { @media (max-width: #{$media-large-desktop}) { @content; } }
+
+// ----- defaut desktop and below ----- // 1200px
+@mixin desktop { @media (max-width: #{$media-defaut-desktop}) { @content; } }
+
+// ----- desktop small and below ----- // 1120px
+@mixin desktop-small { @media (max-width: #{$media-desktop-small}) { @content; } }
+
+// ----- laptop large and below ----- // 1040px
+@mixin laptop-large { @media (max-width: #{$media-laptop-large}) { @content; } }
+
+// ----- laptop and below ----- // 960px
+@mixin laptop { @media (max-width: #{$media-laptop}) { @content; } }
+
+// ----- tablets and below ----- // 800px
+@mixin tablet { @media (max-width: #{$media-tablet}) { @content; } }
+
+// ----- small device and below ----- // 680px
+@mixin tablet-small { @media (max-width: #{$media-tablet-small:}) { @content; } }
+
+// ----- small device and below ----- // 480px
+@mixin small-device { @media (max-width: #{$media-small-device:}) { @content; } }
+
+// ----- smallest device and below ----- // 320px
+@mixin smaller-device { @media (max-width: #{$media-smaller-device}) { @content; } }

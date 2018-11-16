@@ -1,0 +1,287 @@
+
+// dropdown dialog handler on hover of parent .dropdown-item
+
+
+.active-dropdown {
+
+	// Active dropdown on Mobile / device breakpoint styling
+	@include media(max, map-get($breakpoints, tablet-large)) {
+
+		.dropdown-dialog {
+			height: auto;
+			width: auto;
+			margin: 0 0 rem(25px);
+			position: static;
+			@include translateX-Y(0, 0);
+			}
+
+		.dropdown-toggle {
+			top: 0;
+			@include translateX-Y(0, 0);
+
+			&:before {
+				opacity: .9;
+				transform: rotate(90deg) scaleX(-1);
+				}
+
+			}
+
+		}
+
+	}
+
+
+.dropdown-item {
+	position: relative;
+
+	// tablet-large and up / device breakpoint styling
+	@include media(min, map-get($breakpoints, tablet-large)) {
+
+		&:hover {
+
+			.dropdown-dialog {
+
+				&.\--fade-open {
+					opacity: 1;
+					margin-top: 0;
+					height: auto;
+					overflow: visible;
+					}
+
+				&.\--scale-open {
+					transform: scale(1) translateY(0);
+					}
+
+				&.\--pop-open {
+					display: block;
+					}
+
+				}
+
+			}
+
+		}
+
+
+	// tablet-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, tablet-large)) {
+		overflow: hidden;
+		}
+
+	}
+
+
+////////// dropdown dialog box //////////
+
+.dropdown-dialog {
+	clear: both;
+	transform: translateX(0);
+	@include transitions-all;
+
+	// tablet-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, tablet-large)) {
+		position: absolute;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		width: 1px;
+		margin: -1px;
+		padding: 0;
+		border: 0;
+		@include translateX-Y(-150%, rem(-1px));
+
+		a {
+			display: block;
+			padding: rem(10px) rem(40px);
+			}
+
+		}
+
+	// tablet-large and up / device breakpoint styling
+	@include media(min, map-get($breakpoints, tablet-large)) {
+		left: 50%;
+		top: 100%;
+		position: absolute;
+		z-index: 900;
+		transform-origin: top center;
+		width: map-get($columns, span-3-columns); // 280px
+		margin-left: rem(-140px);
+		display: block;
+
+		// Dropdown - theming - transitions
+		&.\--fade-open {
+			opacity: 0;
+		    height: 0;
+		    margin-top: -1px;
+			overflow: hidden;
+			@include transitions-all(opacity, 300ms, map-get($transition, easeInOutQuad))
+			}
+
+		&.\--scale-open {
+			transform: scale(0) translateY(rem(50px));
+			}
+
+		&.\--pop-open {
+			display: none;
+			}
+
+
+		// Dropdown - theming - widths
+		&.\--smallest {
+			width: map-get($columns, span-2-columns); // 180px
+			margin-left: rem(-90px);
+			}
+
+		&.\--small {
+			width: map-get($columns, span-3-columns); // 280px
+			margin-left: rem(-140px);
+			}
+
+		&.\--mid-range {
+			width: map-get($columns, span-4-columns); // 380px
+			margin-left: rem(-190px);
+			}
+
+		&.\--medium {
+			width: map-get($columns, span-5-columns); // 480px
+			margin-left: rem(-240px);
+			}
+
+		&.\--large {
+			width: map-get($columns, span-6-columns); // 580px
+			margin-left: rem(-290px);
+			}
+
+		&.\--xlarge {
+			width: map-get($columns, span-9-columns); // 880px
+			margin-left: rem(-440px);
+			}
+
+		&.\--full-width {
+			width: 100%;
+			margin-left: -50%;
+			}
+
+
+		// Dropdown - theming - anchoring
+		&.\--anchor-left {
+			left: 0;
+			margin-left: 0 !important;
+
+			.dropdown-container:before, .dropdown-container:after {
+				left: rem(20px);
+				}
+
+			}
+
+		&.\--anchor-right {
+			left: auto;
+			right: 0;
+			margin-left: 0 !important;
+
+			.dropdown-container:before, .dropdown-container:after {
+				right: rem(15px);
+				left: auto;
+				}
+
+			.dropdown-container:before {
+				margin-right: rem(-3px);
+				}
+
+			}
+
+		}
+
+////////// Trigger dropdown reveal effects //////////
+
+	&.\--active-dailog {
+
+		&.\--fade-open {
+			opacity: 1;
+			margin-top: 0;
+			height: auto;
+			overflow: visible;
+			}
+
+		&.\--scale-open {
+			transform: scale(1) translateY(0);
+			}
+
+		&.\--pop-open {
+			display: block;
+			}
+
+		}
+
+	}
+
+
+////////// Site dropdowns - dropdown ui //////////
+
+.dropdown-container {
+
+	// tablet-large and up / device breakpoint styling
+	@include media(min, map-get($breakpoints, tablet-large)) {
+		@include depth(one);
+		@include border-radius(1px);
+		background-color: #fff;
+		position: relative;
+		margin-top: 0;
+		z-index: $z-index-3;
+		}
+
+	}
+
+
+////////// Toggle dropdowns on mobile devices //////////
+
+.dropdown-toggle {
+	@extend %button-reset;
+	display: block;
+	right: rem(8px);
+	top: 50%;
+	position: absolute;
+	@include translateX-Y(0, -50%);
+	font-weight: inherit;
+	min-height: rem(44px);
+	width: rem(50px);
+	text-align: center;
+	outline-style: none;
+	font-size: $nav-font-size;
+
+	&:before {
+		@extend %chevron;
+		display: inline-block;
+		transform: rotate(90deg);
+		color: color('white');
+		opacity: .6;
+		vertical-align: -.18em;
+		@include transitions-all;
+		}
+
+	// tablet-large and up / device breakpoint styling
+	@include media(min, map-get($breakpoints, tablet-large)) {
+		display: none;
+		}
+
+	.toggle-label { display: none; }
+
+	}
+
+.dropdown-wrapper {
+
+	// Turn off dropdown dialogs
+	&.\--dialog-disabled {
+
+		.dropdown-container { display: none !important; }
+
+		.dropdown-toggle { display: none !important; }
+
+		}
+
+	// tablet-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, tablet-large)) {
+		overflow: hidden;
+		}
+
+	}

@@ -1,0 +1,360 @@
+
+//////// Global Variables ////////
+// 1. Typography
+// 2. Colors
+// 3. Spacing
+// 4. Layout & Containers
+// 5. Media Queries
+// 6. Transitions & Animations
+// 7. Miscellaneous
+//////// ////////
+
+
+
+////////
+//////// 1. Typography settings ////////
+
+$base-font-family:      'Muli', sans-serif;
+$alt-font-family:       'Lato', sans-serif;
+
+$typography: (
+    root-font-size: 		16px, // Sets base for rem calculations
+	base-font-size: 		rem(16px),
+	secondary-font-size: 	20px,
+    condensed-line-height: 	1.3,
+	base-line-height: 		1.6,
+	size-1-line-height: 	1.8,
+    size-2-line-height: 	2,
+    size-3-line-height: 	2.3,
+	base-margins-type: 		rem(20px)
+);
+
+// Webfonts
+$fa-font-path:  "../fonts/fontawesome-free-5.3.1-web/webfonts";
+
+
+// Common font weights
+$ultra-light: 	100;
+$light: 		300; // Light
+$normal: 		400; // Normal
+$medium: 	    500; // Medium
+$semi-bold: 	600;
+$bold: 			700; // Bold
+$ultra-bold:	900;
+
+
+// Common font sizes
+$really-font-size: 		rem(11px);
+$smallest-font-size: 	rem(12px);
+$tiny-font-size: 		rem(13px);
+$small-font-size: 		rem(14px);
+$nav-font-size: 		rem(18px);
+
+$base-font-size: 		rem(16px);
+$base-font-size-2: 	    rem(18px);
+$base-font-size-3: 	    rem(20px);
+$large-font-size: 		rem(22px);
+$larger-font-size: 		rem(26px);
+
+// Heading line-heights
+$base-heading-line-height:  1.2;
+
+$h1-line-height:            1.1;
+$h2-line-height:            1.2;
+$h3-line-height:            1.3;
+$h4-line-height:            1.35;
+$h5-line-height:            1.45;
+$h6-line-height:            1.5;
+
+// Heading font sizes
+$h1-font-size:          rem(72px);
+$h1-font-size-midrange: rem(52px);
+$h1-font-size-device:   rem(42px);
+
+$h2-font-size:          rem(50px);
+$h2-font-size-device:   rem(36px);
+
+$h3-font-size:          rem(42px);
+$h3-font-size-device:   rem(28px);
+
+$h4-font-size:          rem(28px);
+$h4-font-size-device:   rem(22px);
+
+$h5-font-size:          rem(24px);
+$h5-font-size-device:   rem(20px);
+
+$h6-font-size:          rem(20px);
+$h6-font-size-device:   rem(16px);
+
+
+////// Legacy //////
+// Font weights consider removing after stripping out old css
+$fonts-weight: (
+	'bold':    700,
+	'book':    400,
+    'normal':  400,
+	'light':   300,
+	'medium':  500
+);
+
+// Letter spacing
+$letter-spacing-0:		-.08em;
+$letter-spacing-1:		-.0008em;
+$letter-spacing-2:		.02em;
+$letter-spacing-3:		.04em;
+$letter-spacing-4:		.08em;
+$letter-spacing-5:		.1em;
+
+// Typography margins
+$content-margins: (
+    heading-typography-margins: 			.5em,
+    editorial-heading-typography-margins:	.4em,
+    tiny-typography-margins: 				.25em,
+    small-typography-margins: 				.8em,
+    medium-typography-margins: 				1.1em,
+    base-typography-margins: 				2em,
+    large-typography-margins:				2.4em
+);
+
+
+
+
+////////
+//////// 2. Color settings ////////
+
+$black:		 #121212;
+$white:		 #fff;
+
+$colors: (
+
+    // NEW base
+    'black':		   			#121212,
+    'white':		   			#fff,
+
+
+    // Level set base colors
+    'base-font-color':        #313a44,
+    'alt-font-color':         #34657F,
+    'link-color':             #30acc5,
+    'alt-link-color':         #7D8287,
+    'nav-pannel-color':       #0f1416,
+
+
+    // Brand color palete
+    'brand-blue-0':           #1ca1e3,
+    'brand-blue-1':           #0972a7,
+        'brand-blue-2':           #317cad,  // Primary dark blue button color
+        'brand-blue-3':           #33647e,
+        'brand-blue-4':           #334047,
+        'brand-tan-1':            #d6d2c9,
+        'brand-tan-2':            #75787a,
+        'brand-orange-1':         #f05b43,
+    'brand-red-1':            #CD4B5B,
+    'brand-gray-1':           #788594   ,
+    'brand-gray-2':           #606c79,
+    'brand-gray-3':           #313A44,
+
+    'brand-green-0':          #b4ffd6,
+    'brand-green-1':          #2db068,
+    'brand-green-2':          #238750,
+
+
+    // Grey border shades
+    'border-grey-1':			#eff0f0,
+    'border-grey-2':			#e5e5e5,
+    'border-grey-3':			#dddedf,
+    'border-grey-4':			#d1d1d1,	// Default site borders
+    'border-grey-5':			#bbbcbc,
+    'border-grey-6':			#7f7e7e,
+    'border-grey-7':			#5f6062,
+    'border-grey-8':			#3f3f3f,
+    'border-grey-9':			#3a3a3a,
+
+
+    // Grey background shades / Grey border shades
+    'bg-grey-1':				#f6f7f7,
+    'bg-grey-2':				#f2f2f2,
+    'bg-grey-3':				#eaeaea,
+    'bg-grey-4':				#bbbcbc,
+    'bg-grey-5':				#7f7e7e,
+    'bg-grey-6':				#5f6062,
+    'bg-grey-7':				#575655,
+    'bg-grey-8':				#3f3f3f,
+    'bg-grey-9':				#3a3a3a,
+
+);
+
+
+
+////////
+//////// 3. Spacing framework / padding / gutter settings ////////
+
+// Default site gutters
+$site-gutter:				rem(30px);
+$site-gutter-tablet:		rem(20px);
+$site-gutter-device:		rem(15px);
+
+// Expanded site gutter options
+$site-gutter-xlarge:		rem(180px);
+$site-gutter-large:			rem(120px);
+$site-gutter-medium:		rem(80px);
+$site-gutter-small:			rem(40px);
+$site-gutter-xsmall:		rem(10px);
+
+// Default section padding
+$section-padding:			rem(80px);
+$section-padding-device:	rem(40px);
+
+// Expanded section padding
+$section-padding-10:		rem(280px);
+$section-padding-9:			rem(220px);
+$section-padding-8:			rem(160px);
+$section-padding-7:			rem(120px);
+$section-padding-6:			rem(100px);
+$section-padding-5:			rem(70px);
+$section-padding-4:			rem(60px);
+$section-padding-3: 		rem(40px);
+$section-padding-2: 		rem(20px);
+$section-padding-1:			rem(10px);
+
+
+
+
+////////
+//////// 4. Layout & Container settings ////////
+
+// Large containers - above core grid / column settings
+$containers: (
+	content-width-massive:	rem(2600px),
+	content-width-huge: 	rem(2200px),
+	content-width-large: 	rem(1800px),
+);
+
+// Core column containers
+$columns: (
+	span-16-columns: 		rem(1580px),
+	span-15-columns: 		rem(1480px),
+	span-14-columns: 		rem(1380px),
+	span-13-columns: 		rem(1280px),
+	span-12-columns: 		rem(1180px),
+	span-11-columns: 		rem(1080px),
+	span-10-columns: 		rem(980px),
+	span-9-columns: 		rem(880px),
+	span-8-columns: 		rem(780px),
+	span-7-columns: 		rem(680px),
+	span-6-columns: 		rem(580px),
+	span-5-columns: 		rem(480px),
+	span-4-columns: 		rem(380px),
+	span-3-columns: 		rem(280px),
+	span-2-columns: 		rem(180px),
+	span-1-columns: 		rem(80px)
+);
+
+
+
+
+////////
+//////// 5. Media Query settings ////////
+
+// Global media query breakpoints for use in breakpoint mixin
+$breakpoints: (
+	mobile-small: 			rem(320px),
+	mobile-large: 			rem(480px),
+	tablet: 				rem(680px),
+	tablet-large: 			rem(800px),
+	laptop: 				rem(960px),
+	laptop-large: 			rem(1040px),
+	desktop-small: 			rem(1120px),
+	desktop: 				rem(1200px),
+	desktop-large: 			rem(1280px),
+	desktop-larger: 		rem(1380px),
+	desktop-largest: 		rem(1600px),
+	desktop-hugeish: 		rem(1800px),
+	desktop-huge: 			rem(2200px),
+
+);
+
+
+// Global media query vars used in Grid framework and media query framework
+// NOTE Grid framework vars are not in 'rem' to accommodate calc functions in framework-grid.scss
+// As used in: _mixins.scss
+// As used in: _framework-grid.scss
+// Use as grid class tokens example (tablet-8 smaller-device-16)
+
+$media-smaller-device: 			320px; // Usage example      smaller-device-8
+$media-small-device: 			480px; // Usage example      small-device-8
+$media-tablet-small: 			680px; // Usage example      tablet-small-8
+$media-tablet:  				800px; // Usage example      tablet-8
+$media-laptop:					960px; // Usage example      laptop-8
+$media-laptop-large: 			1040px; // Usage example     laptop-large-8
+$media-desktop-small:			1120px; // Usage example     desktop-small-8
+$media-defaut-desktop:			1200px; // Usage example     desktop-8
+$media-large-desktop: 			1280px; // Usage example     desktop-large-8
+$media-large-1-desktop: 		1380px; // Usage example     desktop-large-1-8
+$media-large-2-desktop: 		1600px; // Usage example     desktop-large-2-8
+$media-large-3-desktop: 		1800px; // Usage example     desktop-large-2-up-8
+$media-huge-desktop: 			2200px; // Usage example     desktop-huge-up-8
+
+
+
+
+////////
+//////// 6. Transitions & Animation settings ////////
+
+// Defualt global transition speed
+$global-transition-speed: 	300ms;
+
+// Expanded transition speeds
+$transition-speed-0: 	0;
+$transition-speed-1: 	100ms;
+$transition-speed-2: 	200ms;
+$transition-speed-3: 	300ms;
+$transition-speed-4: 	600ms;
+$transition-speed-5: 	800ms;
+$transition-speed-6: 	1000ms;
+$transition-speed-7: 	1500ms;
+
+// Transition effects
+$transition: (
+	duration: 			0.3s,
+	easeInCubic: 		cubic-bezier(0.550, 0.055, 0.675, 0.190),
+	easeOutCubic: 		cubic-bezier(0.215, 0.610, 0.355, 1.000),
+	easeInOutCubic: 	cubic-bezier(0.645, 0.045, 0.355, 1.000),
+	easeInCirc: 		cubic-bezier(0.600, 0.040, 0.980, 0.335),
+	easeOutCirc: 		cubic-bezier(0.075, 0.820, 0.165, 1.000),
+	easeInOutCirc: 		cubic-bezier(0.785, 0.135, 0.150, 0.860),
+	easeInExpo: 		cubic-bezier(0.950, 0.050, 0.795, 0.035),
+	easeOutExpo: 		cubic-bezier(0.190, 1.000, 0.220, 1.000),
+	easeInOutExpo: 		cubic-bezier(1.000, 0.000, 0.000, 1.000),
+	easeInQuad: 		cubic-bezier(0.550, 0.085, 0.680, 0.530),
+	easeOutQuad: 		cubic-bezier(0.250, 0.460, 0.450, 0.940),
+	easeInOutQuad: 		cubic-bezier(0.455, 0.030, 0.515, 0.955),
+	easeInQuart: 		cubic-bezier(0.895, 0.030, 0.685, 0.220),
+	easeOutQuart: 		cubic-bezier(0.165, 0.840, 0.440, 1.000),
+	easeInOutQuart: 	cubic-bezier(0.770, 0.000, 0.175, 1.000),
+	easeInQuint: 		cubic-bezier(0.755, 0.050, 0.855, 0.060),
+	easeOutQuint: 		cubic-bezier(0.230, 1.000, 0.320, 1.000),
+	easeInOutQuint: 	cubic-bezier(0.860, 0.000, 0.070, 1.000),
+	easeInSine: 		cubic-bezier(0.470, 0.000, 0.745, 0.715),
+	easeOutSine: 		cubic-bezier(0.390, 0.575, 0.565, 1.000),
+	easeInOutSine: 		cubic-bezier(0.445, 0.050, 0.550, 0.950),
+	easeInBack: 		cubic-bezier(0.600, -0.280, 0.735, 0.045),
+	easeOutBack: 		cubic-bezier(0.175, 0.885, 0.320, 1.275),
+	easeInOutBack: 		cubic-bezier(0.680, -0.550, 0.265, 1.550)
+);
+
+
+
+
+////////
+//////// 7. Miscellaneous ////////
+
+// Stacking z-index settings
+$z-index-1:			100;
+$z-index-2:			200;
+$z-index-3:			300;
+$z-index-4:			400;
+$z-index-5:			500;
+$z-index-under:		-1;
+$z-index-bottom:	1;
+$z-index-top:		1000;

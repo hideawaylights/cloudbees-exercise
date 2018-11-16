@@ -1,0 +1,49 @@
+/* Production tag - New site dev NEW - */
+
+//////// Vars, Functions, Mixins, Settings ////////
+@import 'utilities/functions/functions-base';
+@import 'utilities/functions/px-to-em';
+@import 'utilities/functions/px-to-rem';
+@import 'utilities/mixins/mixins-base';
+@import 'utilities/mixins/mixins-triangle';
+
+// Core Vars / Settings
+@import 'utilities/vars';
+
+// Icon Font
+@import 'utilities/icon-font';
+
+
+//////// Additional Utilities  ////////
+@import 'utilities/backgrounds-borders-text';
+@import 'utilities/dev-tools';
+@import 'utilities/animation-helpers';
+@import 'utilities/ui-depth';
+@import 'utilities/utilities';
+
+
+//////// Core Includes ////////
+@import 'core/base';
+@import 'core/typography';
+@import 'core/forms';
+@import 'core/table';
+
+
+//////// Layout frameworks ////////
+@import 'layout/containers';
+@import 'layout/content-section';
+@import 'layout/framework-grid';
+@import 'layout/layout-utilities';
+
+
+//////// Modules ////////
+
+// Buttons & links
+@import 'modules/buttons-links/buttons';
+@import 'modules/buttons-links/buttons-thememing';
+
+// Cards
+@import 'modules/cards/card-base';
+
+// Dropdowns
+@import 'modules/dropdowns/dropdown-dialog';

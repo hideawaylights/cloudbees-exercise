@@ -1,0 +1,132 @@
+// View Glass - - Page sections - section-base
+
+
+// Global settings for content sections
+.content-section {
+
+    .inverse-content-color {
+        color: color('white');
+        }
+
+    img { display: block; }
+
+//////// sub containers
+
+    .closing-container {
+        position: relative;
+        padding-top: $section-padding-2;
+
+        // tablet and down / device breakpoint styling
+        @include media(max, map-get($breakpoints, tablet)) {
+            padding-top: $section-padding-1;
+            }
+
+        &.\--centered-content {
+            text-align: center;
+            }
+
+        }
+
+    .opening-container {
+        position: relative;
+        font-size: $large-font-size;
+        margin-bottom: $section-padding-4;
+
+        .benefits-icon {
+            margin-bottom: rem(30px);
+            }
+
+        p:last-of-type { margin: 0; }
+
+        // tablet and down / device breakpoint styling
+        @include media(max, map-get($breakpoints, tablet)) {
+            margin-bottom: $section-padding-3;
+            }
+
+        // Theameing content
+        &.\--centered-content { text-align: center; }
+
+        &.\--font-size-option-1 { font-size: $base-font-size-2; }
+
+        &.\--margin-option-1 { margin-bottom: $section-padding-1; }
+
+        &.\--margin-option-2 { margin-bottom: $section-padding-2; }
+
+        &.\--margin-option-3 { margin-bottom: $section-padding-3; }
+
+        }
+
+    .resources-content-container {
+        position: relative;
+        margin-bottom: $section-padding-4;
+
+        // tablet and down / device breakpoint styling
+        @include media(max, map-get($breakpoints, tablet)) {
+            margin-bottom: $section-padding-1;
+            }
+
+        &.\--centered-content {
+            text-align: center;
+
+            // tablet and down / device breakpoint styling
+        	@include media(max, map-get($breakpoints, tablet)) {
+                text-align: left;
+                }
+
+            }
+
+        }
+
+    }
+
+
+
+///////// Section Dividers /////////
+
+.section-divider {
+    height: rem(2px);
+    padding: 0;
+    margin: $section-padding-1 auto;
+    background-color: color('border-grey-2');
+
+    ///////// Divider options /////////
+
+    ///////// border thickness
+
+    &.\--thickness-option-1 { height: rem(2px); }
+
+    &.\--thickness-option-2 { height: rem(2px); }
+
+    &.\--thickness-option-3 { height: rem(3px); }
+
+    &.\--thickness-option-4 { height: rem(4px); }
+
+    &.\--thickness-option-5 { height: rem(5px); }
+
+
+    ///////// margins
+
+    &.\--margin-option-1 { margin: $section-padding-2 auto; }
+
+    &.\--margin-option-2 { margin: $section-padding-3 auto; }
+
+    &.\--margin-option-3 { margin: $section-padding-4 auto; }
+
+    &.\--margin-option-4 { margin: $section-padding-5 auto; }
+
+    &.\--margin-option-5 { margin: $section-padding-6 auto; }
+
+
+    ///////// border-color
+
+    &.\--color-option-1 { background-color: color('border-grey-1'); }
+
+    &.\--color-option-2 { background-color: color('border-grey-2'); }
+
+    &.\--color-option-3 { background-color: color('border-grey-3'); }
+
+    &.\--color-option-4 { background-color: color('border-grey-4'); }
+
+    &.\--color-option-5 { background-color: color('border-grey-5'); }
+
+    }

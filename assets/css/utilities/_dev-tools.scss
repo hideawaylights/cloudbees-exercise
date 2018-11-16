@@ -1,0 +1,67 @@
+// Site development tools
+
+.show-grid {
+	overflow-x: hidden;
+
+	&:before {
+		content: "";
+		display: block;
+		width: map-get($containers, content-width-massive);
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		position: fixed;
+		z-index: 1000;
+		margin-left: -1300px;
+		opacity: .3;
+		background: transparent url('/assets/img/fpo-content/site-grid.svg') 0 0 repeat;
+		}
+
+	}
+
+
+// Breakpoint helper - uncomment to display breakpoint diagnostic //
+
+// body:after {
+// 	content: "Max breakpoint";
+// 	bottom: rem(20px);
+// 	left: rem(20px);
+// 	position: fixed;
+// 	z-index: $z-index-top;
+// 	display: block;
+// 	color: color('white');
+// 	background-color: color('brand-blue-1');
+//  	padding: rem(10px) rem(25px);
+// 	font-size: $small-font-size;
+// 	@include depth(two);
+// 	@include border-radius(4px);
+//
+// 	// Breakpoint inventory //
+//
+// 	@include media(max, map-get($breakpoints, desktop-huge)) 	{ content: "desktop-huge / 2200px"; }
+//
+// 	@include media(max, map-get($breakpoints, desktop-hugeish)) { content: "desktop-hugeish / 1800px"; }
+//
+// 	@include media(max, map-get($breakpoints, desktop-largest)) { content: "desktop-largest / 1600px"; }
+//
+// 	@include media(max, map-get($breakpoints, desktop-larger)) 	{ content: "desktop-larger / 1380px"; }
+//
+// 	@include media(max, map-get($breakpoints, desktop-large)) 	{ content: "desktop-large / 1280px"; }
+//
+// 	@include media(max, map-get($breakpoints, desktop)) 		{ content: "desktop / 1200px"; }
+//
+// 	@include media(max, map-get($breakpoints, desktop-small)) 	{ content: "desktop-small / 1120px"; }
+//
+// 	@include media(max, map-get($breakpoints, laptop-large)) 	{ content: "laptop-large / 1040px"; }
+//
+// 	@include media(max, map-get($breakpoints, laptop)) 			{ content: "laptop / 960px"; }
+//
+// 	@include media(max, map-get($breakpoints, tablet-large)) 	{ content: "tablet-large / 800px"; }
+//
+// 	@include media(max, map-get($breakpoints, tablet)) 			{ content: "tablet / 680px"; }
+//
+// 	@include media(max, map-get($breakpoints, mobile-large)) 	{ content: "mobile-large / 480px"; }
+//
+// 	@include media(max, map-get($breakpoints, mobile-small)) 	{ content: "mobile-small / 320px"; }
+//
+// 	}

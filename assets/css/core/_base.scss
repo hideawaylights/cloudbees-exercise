@@ -1,0 +1,289 @@
+// View Glass - - Base card display
+
+
+
+//////// Basic reset ////////
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+    }
+
+blockquote, q {
+    quotes: none;
+    }
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+
+//////// /end Basic reset ////////
+
+
+
+*, *:after, *:before {
+	box-sizing: border-box;
+    }
+
+html {
+    font-size: map-get($typography, root-font-size); // Declare ROOT font size for rems calculation
+    overflow-x: hidden;
+    }
+
+body {
+    color: color('base-font-color');
+    background: color('white');
+	}
+
+a {
+	text-decoration: none;
+    cursor: pointer;
+	@include transitions-all;
+	}
+
+a:not([class]) {
+    color: color('brand-blue-1');
+    @include transitions-all;
+
+    &:hover {
+        color: color('brand-orange-1');
+        text-decoration: none;
+        }
+
+    }
+
+img, svg {
+    max-width: 100%;
+    vertical-align: top;
+    }
+
+
+//////// Helper to control responsive svg images/icon sizing ////////
+
+.asset-size {
+	display: block;
+	margin: 0;
+
+	&.\--center-asset {
+		margin-left: auto;
+		margin-right: auto;
+		}
+
+	&.\--massive { max-width: rem(380px); }
+
+    &.\--huge { max-width: rem(300px); }
+
+    &.\--xlarge { max-width: rem(180px); }
+
+    &.\--large { max-width: rem(140px); }
+
+	&.\--default { max-width: rem(110px); }
+
+    &.\--medium { max-width: rem(80px); }
+
+	&.\--medium-ish { max-width: rem(65px); }
+
+    &.\--small { max-width: rem(50px); }
+
+    &.\--tiny { max-width: rem(35px); }
+
+    &.\--really-tiny { max-width: rem(20px); }
+
+    }
+
+
+//////// Helper to control responsive icon font sizing ////////
+
+i[class*="fa-"] {
+
+	&.\--center-icon {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		}
+
+	&.\--massive { font-size: rem(200px); }
+
+    &.\--huge { font-size: rem(140px); }
+
+    &.\--xlarge { font-size: rem(80px); }
+
+    &.\--large { font-size: rem(48px); }
+
+    &.\--medium { font-size: rem(36px); }
+
+	&.\--medium-ish { font-size: rem(22px); }
+
+	&.\--default { font-size: rem(16px); }
+
+    &.\--small { font-size: rem(13px); }
+
+    &.\--tiny { font-size: rem(10px); }
+
+	}
+
+
+//////// Remove padding and margin ////////
+
+.\--no-padding { padding: 0 !important; }
+
+.\--no-top-padding { padding-top: 0 !important; }
+
+.\--no-bottom-padding { padding-bottom: 0 !important; }
+
+.\--no-margin { margin: 0 !important; }
+
+.\--no-top-margin { margin-top: 0 !important; }
+
+.\--no-bottom-margin { margin-bottom: 0 !important; }
+
+
+//////// Content alignment ////////
+
+.align-center { text-align: center; }
+
+.align-left { text-align: left;  }
+
+.align-right { text-align: right;  }
+
+
+//////// Display utilities ////////
+
+.content-hidden { display: none; }
+
+.content-hidden-desktop { display: none; }
+
+.visually-hidden { visibility: hidden; }
+
+.non-breaking-text { white-space: nowrap; }
+
+
+//////// Divice hiding and showing of banner content
+
+// NOTE this needs to be refactord and is not good targeting //
+
+                .hide-on-tablet-range {
+                    display: block;
+
+                	@include media(minmax, map-get($breakpoints, tablet),
+                    map-get($breakpoints, tablet-large)) {
+                		display: none !important;
+                		}
+                	}
+
+                .hide-on-tablet {
+                    // tablet-large and up / device breakpoint styling
+                	@include media(min, map-get($breakpoints, tablet-large)) {
+                		display: none !important;
+                		}
+
+                    }
+
+                .hide-on-mobile {
+                    // tablet and down / device breakpoint styling
+                	@include media(max, map-get($breakpoints, tablet)) {
+                		display: none !important;
+                		}
+                	}
+
+                .show-on-tablet-range {
+                    display: none;
+
+                	@include media(minmax, map-get($breakpoints, mobile-large),
+                    map-get($breakpoints, tablet-large)) {
+                		display: block !important;
+                		}
+                	}
+
+                .show-on-tablet {
+                    display: none;
+
+                    // tablet-large and down / device breakpoint styling
+                	@include media(max, map-get($breakpoints, tablet-large)) {
+                		display: block !important;
+                		}
+
+                    }
+
+                .show-on-mobile {
+                    display: none;
+
+                    // tablet and down / device breakpoint styling
+                	@include media(max, map-get($breakpoints, tablet)) {
+                		display: block !important;
+                		}
+
+                	}
+
+// /end NOTE this needs to be refactord and is not good targeting //
+
+
+//////// Vertical spacer utility ////////
+
+.spacer {
+	display: block;
+
+	&.\--size-1 { margin: rem(10px) 0; }
+
+	&.\--size-2 { margin: rem(20px) 0; }
+
+	&.\--size-3 { margin: rem(30px) 0; }
+
+	&.\--size-4 { margin: rem(40px) 0; }
+
+	&.\--size-5 { margin: rem(50px) 0; }
+
+	&.\--size-6 { margin: rem(60px) 0; }
+
+	&.\--size-7 { margin: rem(70px) 0; }
+
+	&.\--size-8 { margin: rem(80px) 0; }
+
+	&.\--size-9 { margin: rem(90px) 0; }
+
+	&.\--size-10 { margin: rem(100px) 0; }
+
+	}
+
+
+// Tool tips
+
+.tippy-tooltip-content {
+    font-size: $small-font-size;
+    max-width: rem(380px);
+    padding: rem(6px) 0;
+    }
+
+
+// Utility for screen readers and hiding text
+
+.sr-only, %sr-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    }
+
+
+// Miscellaneous
+
+.nowrap { white-space: nowrap; }

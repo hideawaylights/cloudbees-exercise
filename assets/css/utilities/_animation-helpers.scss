@@ -1,0 +1,154 @@
+// Theming utilities animation helpers
+
+
+
+/* ScrollTrigger based animations - https://github.com/terwanerik/ScrollTrigger */
+
+// Default state - this assumes that we use opacity on all animations - this may be buggy consider revising
+[data-scroll] {
+    opacity: 0;
+    }
+
+
+// Mixin for disabling or level setting / removing animations - this assumes that animations are using opacity and transform - this may be buggy consider revising
+@mixin reset-animation($transition: none) {
+    /* FIND ME */
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+    width: auto;
+
+    @if $transition == none {
+        transition: none !important;
+        } @else {
+        /* transitions inherited */
+        }
+
+    }
+
+.slick-active, .active-animation { // adding modifier to trigger animation on class active states
+
+
+////// Timing classes to control transition delays //////
+
+    %timing, .timing, [data-timing]           { transition: transform .6s ease, opacity .6s ease, width .6s ease; }
+
+    %timing-1, .timing-1, [data-timing-1]     { transition: transform .9s ease, opacity .9s ease, width .9s ease; }
+
+    %timing-2, .timing-2, [data-timing-2]     { transition: transform 1s ease, opacity 1s ease, width 1s ease; }
+
+    %timing-3, .timing-3, [data-timing-3]     { transition: transform 1.1s ease, opacity 1.1s ease, width 1.1s ease; }
+
+    %timing-4, .timing-4, [data-timing-4]     { transition: transform 1.3s ease, opacity 1.3s ease, width 1.3s ease; }
+
+    %timing-5, .timing-5, [data-timing-5]     { transition: transform 1.5s ease, opacity 1.5s ease, width 1.5s ease; }
+
+    %timing-6, .timing-6, [data-timing-6]     { transition: transform 1.9s ease, opacity 1.9s ease, width 1.9s ease; }
+
+    %timing-7, .timing-7, [data-timing-7]      { transition: transform 2.2s ease, opacity 2.2s ease, width 2.2s ease; }
+
+    %timing-8, .timing-8, [data-timing-8]      { transition: transform 3.5s ease, opacity 3.5s ease, width 3.5s ease; }
+
+
+
+
+////// Animation classes and types //////
+
+    [class*="animator"], [class*="visible"] {
+        @extend %timing;
+        }
+
+    .invisible {
+        opacity: 0;
+        }
+
+    .visible {
+        opacity: 1;
+        }
+
+    .animator-top-in {
+    	transform: translate(0,0);
+    	opacity: 1;
+        }
+
+    .animator-top-out {
+    	transform: translate(0,-30px);
+    	opacity: 0;
+        }
+
+    .animator-bottom-in {
+    	transform: translate(0,0);
+    	opacity: 1;
+        }
+
+    .animator-bottom-out {
+    	transform: translate(0,30px);
+    	opacity: 0;
+        }
+
+    .animator-left-in {
+    	transform: translate(0,0);
+    	opacity: 1;
+        }
+
+    .animator-left-out {
+    	transform: translate(-30px,0);
+    	opacity: 0;
+        }
+
+    .animator-right-in {
+    	transform: translate(0,0);
+    	opacity: 1;
+        }
+
+    .animator-right-out {
+    	transform: translate(30px, 0);
+    	opacity: 0;
+        }
+
+    .animator-scale-up-in {
+    	transform: scale(1,1);
+    	opacity: 1;
+        }
+
+    .animator-scale-up-out {
+    	transform: scale(1.3,1.3);
+    	opacity: 0;
+        }
+
+    .animator-scale-down-in {
+    	transform: scale(1,1);
+    	opacity: 1;
+        }
+
+    .animator-scale-down-out {
+    	transform: scale(0.7,0.7);
+    	opacity: 0;
+        }
+
+    .defaultMoveState {
+        @include transitions-all;
+        }
+
+    .moveOutFade {
+        @include transitions-all;
+    	opacity: 0;
+        }
+
+    .animator-width-0 {
+        width: 0;
+        @include transitions-all;
+        }
+
+    .animator-width-10 {
+        width: 10%;
+        @include transitions-all;
+        }
+
+    .animator-width-100 {
+        width: 100%;
+        @include transitions-all;
+        }
+
+
+
+    }

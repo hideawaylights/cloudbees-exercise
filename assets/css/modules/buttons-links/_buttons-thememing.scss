@@ -1,0 +1,164 @@
+// Primary Partial - Primary Buttons //
+
+
+
+a[class*="button"], input[type="button"], button:not([class]), %button {
+	color: color('white');
+	background-color: color('brand-orange-1');
+
+    &:hover, .active, .is-active {
+		color: color('white');
+		background-color: darken(color('brand-orange-1'), 7%);
+		@include depth(one);
+        }
+
+    &:focus { @include transitions-none; }
+
+
+//////// Base Button thememing options ////////
+
+	// Inverse button theme base //
+
+	&.\--inverse, &%button--inverse {
+		color: color('white');
+		background-color: transparent;
+		border: rem(2px) solid color('white');
+
+		// Reduce padding to acompdate for border pixel weight
+		padding: rem(8px) rem(28px);
+
+		&.\--tiny { padding: rem(1px) rem(10px); }
+
+		// Inverse sizing controls
+		&.\--small {  padding: rem(4px) rem(20px); }
+
+		// tablet-large and up / device breakpoint styling
+		@include media(min, map-get($breakpoints, tablet-large)) {
+
+			&.\--large { padding: rem(12px) rem(53px); }
+
+			&.\--xlarge { padding: rem(14px) rem(58px); }
+
+			}
+
+		&:hover, &.active, .is-active {
+			color: color('base-font-color');
+			border-color: rgba(color('white'), .8);
+			background-color: rgba(color('white'), .8);
+			}
+
+		// Inverse hover treatments
+		&.\--blue-1-hover {
+
+			&:hover, &.active, &.is-active {
+				color: color('white');
+				border-color: rgba(color('brand-blue-1'), .8);
+				background-color: rgba(color('brand-blue-1'), .8);
+				}
+
+			}
+
+		}
+
+
+//////// Advanced Button thememing options ////////
+
+	//////// Blue 1
+	&.\--blue-1, %button--blue-1  {
+		color:  color('white');
+		background-color: color('brand-blue-1');
+
+		&:hover, &.active, .is-active {
+			color:  color('white');
+			background-color: darken(color('brand-blue-1'), 7%);
+			}
+
+		&.\--inverse {
+			color: color('brand-blue-2');
+			border-color: color('brand-blue-2');
+			background-color: transparent;
+
+			&:hover, &.active, .is-active {
+				color:  color('white');
+				border-color: darken(color('brand-blue-1'), 7%);
+				background-color: darken(color('brand-blue-1'), 7%);
+				}
+
+			}
+
+		}
+
+
+	//////// Blue 2
+	&.\--blue-2, %button--blue-2  {
+		color:  color('white');
+		background-color: color('brand-blue-2');
+
+		&:hover, &.active, .is-active {
+			background-color: darken(color('brand-blue-2'), 7%);
+			}
+
+		&.\--inverse {
+			color: color('brand-blue-2');
+			border-color: color('brand-blue-2');
+			background-color: transparent;
+
+			&:hover, .active, .is-active {
+				color:  color('white');
+				border-color: darken(color('brand-blue-2'), 7%);
+		        background-color: darken(color('brand-blue-2'), 7%);
+		        }
+
+			}
+
+		}
+
+	//////// Blue 3
+	&.\--blue-3, %button--blue-3  {
+		color:  color('white');
+		background-color: color('brand-blue-3');
+
+		&:hover, &.active, .is-active {
+			background-color: darken(color('brand-blue-3'), 7%);
+			}
+
+		&.\--inverse {
+			color: color('brand-blue-3');
+			border-color: color('brand-blue-3');
+			background-color: transparent;
+
+			&:hover, &.active, .is-active {
+				color:  color('white');
+				border-color: darken(color('brand-blue-3'), 7%);
+		        background-color: darken(color('brand-blue-3'), 7%);
+		        }
+
+			}
+
+		}
+
+	//////// Blue 4
+	&.\--blue-4, %button--blue-4  {
+		color:  color('white');
+		background-color: color('brand-blue-4');
+
+		&:hover, &.active, .is-active {
+			background-color: darken(color('brand-blue-4'), 7%);
+			}
+
+		&.\--inverse {
+			color: color('brand-blue-4');
+			border-color: color('brand-blue-4');
+			background-color: transparent;
+
+			&:hover, &.active, .is-active {
+				color:  color('white');
+				border-color: darken(color('brand-blue-4'), 7%);
+		        background-color: darken(color('brand-blue-4'), 7%);
+		        }
+
+			}
+
+		}
+
+	} // /end [class*="button"], input[type="button"]

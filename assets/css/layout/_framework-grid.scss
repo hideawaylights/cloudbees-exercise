@@ -1,0 +1,330 @@
+/* Project: Simple responsive SASS grid framework // Author: Mike Rusczyk / mike@ofad.org / http://hideawaylights.com/mike-rusczyk */
+
+// Primary container class token
+$container-class-token: column-container;
+
+// variables: grid basics
+
+// Used to declare grid margins on left, right, and bottom * 2.5
+$grid-fixed-margin: 10px;
+$grid-fluid-margin: calc-percent(8.2px, 1000px);
+
+// Declare number of columns
+$item-count: 16;
+
+// Grid classes breakpoint iterations
+// if $item-count is 16 then each class represents its span across a 16 column grid
+
+
+
+// The Enphase grid system is based on a 12 column grid with 10px margins on left and right sides of each grid item with a 25px bottom margin per item.
+// Grid breakpoint iteration token classes are defined via media queries and triggered via classes on each grid item.
+
+// example class usage: <div class="item default-4 desktop-large-2 tablet-6 small-device-16">
+// default-4 		= 4 columns span (declares default state)
+// desktop-large-2	= 2 columns span
+// tablet-6			= 6 columns span
+// small-device-16	= 16 column span
+
+// NOTE: Migrated to _vars.scss
+// $media-smaller-device: 			320px; // Usage example      smaller-device-8
+// $media-small-device: 			480px; // Usage example      small-device-8
+// $media-tablet-small: 			680px; // Usage example      tablet-small-8
+// $media-tablet:  				    800px; // Usage example      tablet-8
+// $media-laptop:					960px; // Usage example      laptop-8
+// $media-laptop-large: 			1040px; // Usage example     laptop-large-8
+// $media-desktop-small:			1120px; // Usage example     desktop-small-8
+// $media-defaut-desktop:			1200px; // Usage example     desktop-8
+// $media-large-desktop: 			1280px; // Usage example     desktop-large-8
+// $media-large-1-desktop: 		    1380px; // Usage example     desktop-large-1-8
+// $media-large-2-desktop: 		    1600px; // Usage example     desktop-large-2-8
+// $media-large-3-desktop: 		    1800px; // Usage example     desktop-large-2-up-8
+// $media-huge-desktop: 			2200px; // Usage example     desktop-huge-up-8
+// /end NOTE: Migrated to _vars.scss
+
+
+/* ::::::: Core Grid SCSS ::::::: */
+
+.#{$container-class-token} {
+  margin-left: -$grid-fluid-margin;
+  margin-right: -$grid-fluid-margin;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .item {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    margin: 0 $grid-fluid-margin ($grid-fluid-margin * 2.5);
+
+    &.anchord-right {
+      float: right;
+    }
+
+    &.anchord-left {
+      float: left;
+    }
+
+    .item {
+      margin-bottom: 0;
+    }
+  }
+
+  &.anchor-last-item {
+    .item:last-child {
+      float: right;
+    }
+  }
+
+
+  // Overide to create fixed or hard pixel grid margins
+  &.fixed-margins {
+      margin-left: -$grid-fixed-margin;
+      margin-right: -$grid-fixed-margin;
+
+      .item {
+          margin: 0 $grid-fixed-margin ($grid-fixed-margin * 2.5);
+        }
+
+  }
+
+
+  // Overide for inline centered grid structures used for collapsed and margin grids
+  &.centered, &.centered.collapse {
+    text-align: center;
+    margin: 0;
+  }
+
+
+  // Note on centerd grids we default to fixed or hard pixel grid margins
+  &.centered, &.centered > .row {
+	  > .item {
+        display: inline-block;
+        float: none !important;
+        margin-left: calc(#{$grid-fixed-margin} - 2.5px);
+        margin-right: calc(#{$grid-fixed-margin} - 2.5px);
+
+        // Allows for the removal of inline font spacing
+        vertical-align: top;
+      }
+  	}
+
+    // Note on centered grids we default to fixed or hard pixel grid margins
+  &.centered.collapse, &.centered.collapse > .row {
+	  > .item {
+        margin-left: -2.5px !important;
+        margin-right: -2.5px !important;
+	     }
+  }
+
+
+  // Overide for collapsed grid structure retaining no margins
+  &.collapse {
+    margin: 0;
+
+    > .item {
+      margin: 0;
+    }
+  }
+}
+
+
+
+// simple utility for creating rows
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+
+
+
+/* ::::::: Media/Size Grid Iterations ::::::: */
+
+@mixin grid-framework($token: default) {
+
+  .item.#{$token}-#{$item-count} {
+    width: calc(100% - (#{$grid-fluid-margin} * 2));
+    margin: 0 $grid-fluid-margin ($grid-fluid-margin * 2);
+    display: block;
+    float: none;
+    clear: both;
+    }
+
+      /* Use this to evenly span 3 items across 16 column grids */
+      // Overide fixed or hard pixel grid margins + evenly span 3 items across 16
+      .item.#{$token}-5-3 {
+          width: calc(100% / 3 - (#{$grid-fluid-margin} * 2));
+          }
+
+
+  // Overide fixed or hard pixel grid margins
+  &.fixed-margins .item.#{$token}-#{$item-count} {
+      width: calc(100% - (#{$grid-fixed-margin} * 2));
+      margin: 0 $grid-fixed-margin ($grid-fixed-margin * 2);
+      }
+
+      /* Use this to evenly span 3 items across 16 column grids */
+      // Overide fixed or hard pixel grid margins + evenly span 3 items across 16
+      &.fixed-margins .item.#{$token}-5-3 {
+          width: calc(100% / 3 - (#{$grid-fixed-margin} * 2));
+        }
+
+
+  // Collapse grid margins
+  &.collapse {
+
+      > .item.#{$token}-#{$item-count} {
+        width: 100% !important;
+        margin: 0;
+        }
+
+      /* Collapse grid margins on evenly span 3 items across 16 column grids */
+      > .item.#{$token}-5-3, > .row > .item.#{$token}-5-3 {
+          width: calc(100% / 3);
+          margin: 0;
+          }
+
+      /* Collapse grid margins on evenly span 3 items across 16 column grids */
+      &.fixed-margins > .item.#{$token}-5-3, &.fixed-margins > .row > .item.#{$token}-5-3 {
+          width: calc(100% / 3);
+          margin: 0;
+          }
+
+    }
+
+
+  // Looping instances of grid framework one instance per "$item-count"
+  @for $instance from 1 through $item-count {
+    // Instance divided by item count base grid math
+    $multiplier: $instance / $item-count;
+
+    .item.#{$token}-#{$instance} {
+      width: calc(100% * #{$multiplier} - #{$grid-fluid-margin} * 2);
+      }
+
+    // Overide fixed or hard pixel grid margins
+    &.fixed-margins .item.#{$token}-#{$instance} {
+      width: calc(100% * #{$multiplier} - #{$grid-fixed-margin} * 2);
+      }
+
+    // Overide collapsed class tokens & sizing
+    &.collapse > .item.#{$token}-#{$instance}, &.collapse > .row > .item.#{$token}-#{$instance} {
+      width: calc(100% * #{$multiplier});
+      margin: 0;
+      }
+
+  }
+
+
+}
+
+
+
+
+// Establish grid default display
+.#{$container-class-token} {
+  @include grid-framework;
+  }
+
+
+
+
+
+/* ::::::: Media/ediaQueries Output Iterations ::::::: */
+
+/* ----- huge desktop and up (2200px) ----- */
+@media (min-width: #{$media-huge-desktop + 1}) {
+  .#{$container-class-token} {
+    @include grid-framework(desktop-huge-up);
+  }
+}
+
+/* ----- xxlarge desktop and up (2200px) ----- */
+@media (min-width: #{$media-large-2-desktop + 1}) {
+  .#{$container-class-token} {
+    @include grid-framework(desktop-large-2-up);
+  }
+}
+
+/* ----- xxlarge desktop and below (1600px) ----- */
+@media (max-width: #{$media-large-2-desktop}) {
+  .#{$container-class-token} {
+    @include grid-framework(desktop-large-2);
+  }
+}
+
+/* ----- xlarge desktop and below (1380px) ----- */
+@media (max-width: #{$media-large-1-desktop}) {
+  .#{$container-class-token} {
+    @include grid-framework(desktop-large-1);
+  }
+}
+
+/* ----- large desktop and below (1280px) ----- */
+@media (max-width: #{$media-large-desktop}) {
+  .#{$container-class-token} {
+    @include grid-framework(desktop-large);
+  }
+}
+
+/* ----- default desktop and below (1200px) ----- */
+@media (max-width: #{$media-defaut-desktop}) {
+  .#{$container-class-token} {
+    @include grid-framework(desktop);
+  }
+}
+
+/* ----- largish desktop and below (1120px) ----- */
+@media (max-width: #{$media-desktop-small}) {
+  .#{$container-class-token} {
+    @include grid-framework(desktop-small);
+  }
+}
+
+/* ----- laptop-large desktop and below (1040[x]) ----- */
+@media (max-width: #{$media-laptop-large}) {
+  .#{$container-class-token} {
+    @include grid-framework(laptop-large);
+  }
+}
+
+/* ----- small desktop and below (960px) ----- */
+@media (max-width: #{$media-laptop}) {
+  .#{$container-class-token} {
+    @include grid-framework(laptop);
+  }
+}
+
+/* ----- tablet and below (800px) ----- */
+@media (max-width: #{$media-tablet}) {
+  .#{$container-class-token} {
+    @include grid-framework(tablet);
+  }
+}
+
+/* ----- tablet small and below (680px) ----- */
+@media (max-width: #{$media-tablet-small}) {
+  .#{$container-class-token} {
+    @include grid-framework(tablet-small);
+  }
+}
+
+/* ----- device small and below (480px) ----- */
+@media (max-width: #{$media-small-device}) {
+  .#{$container-class-token} {
+    @include grid-framework(small-device);
+  }
+}
+
+/* ----- device smaller and below (320px) ----- */
+@media (max-width: #{$media-smaller-device}) {
+  .#{$container-class-token} {
+    @include grid-framework(smaller-device);
+  }
+}

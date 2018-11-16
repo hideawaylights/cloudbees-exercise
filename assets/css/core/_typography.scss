@@ -1,0 +1,220 @@
+//* Additional Partial - New Global Typagraphy */
+
+
+body {
+    font-family: $base-font-family;
+	font-size: map-get($typography, base-font-size);
+	line-height: map-get($typography, base-line-height);
+	font-weight: $normal;
+	font-style: normal;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: none;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    }
+
+em { font-style: italic; }
+
+hr {
+	display: block;
+	width: 100%;
+	height: rem(1px);
+	margin: rem(45px) 0;
+	padding: 0;
+	border: 0;
+	background-color: map-get($colors, border-grey-3);
+	}
+
+
+//////// Headers ////////
+
+%header-element {
+    font-family: $alt-font-family;
+	font-weight: $normal;
+	margin-bottom: map-get($content-margins, heading-typography-margins);
+	}
+
+h1, h2, h3, h4, h5, h6 {
+    @extend %header-element;
+
+    // Font weights
+    &.light { font-weight: $light; }
+
+    &.normal { font-weight: $normal; }
+
+    &.medium { font-weight: $medium; }
+
+    &.bold { font-weight: $bold; }
+
+    }
+
+%h1, .h1, h1, .callout-header {
+	font-size: $h1-font-size; // 72px
+	line-height: $h1-line-height;
+    font-weight: $light; // Displays light default
+
+    &.small {
+        font-size: rem(46px);
+        margin-bottom: map-get($content-margins, tiny-typography-margins);
+        }
+
+    // desktop-larger and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, desktop-larger)) {
+        font-size: $h1-font-size-midrange; // 52px
+		}
+
+    // tablet-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, tablet-large)) {
+        font-size: $h1-font-size-device; // 42px
+		}
+
+    // mobile-small and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, mobile-small)) {
+        font-size: $h2-font-size-device; // 36px
+		}
+
+	}
+
+%h2, .h2, h2 {
+	font-size: $h2-font-size; // 50px
+	line-height: $h2-line-height;
+    font-weight: $medium; // Displays medium default
+    margin-bottom: map-get($content-margins, tiny-typography-margins);
+
+    // tablet-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, tablet-large)) {
+        font-size: $h2-font-size-device; // ?? // add this
+		}
+
+	}
+
+%h3, .h3, h3 {
+	font-size: $h3-font-size; // 42px
+	line-height: $h3-line-height;
+
+    // tablet-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, tablet-large)) {
+        font-size: $h3-font-size-device; // ?? add this
+		}
+
+	}
+
+%h4, .h4, h4 {
+	font-size: $h4-font-size; // 35px
+	line-height: $h4-line-height;
+    font-weight: $medium; // Displays medium default
+
+    // tablet-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, tablet-large)) {
+        font-size: $h4-font-size-device; // ?? add this
+		}
+
+	}
+
+%h5, .h5, h5 {
+	font-size: $h5-font-size; // 22px
+	line-height: $h5-line-height;
+	margin-bottom: rem(20px);
+
+    // tablet-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, tablet-large)) {
+        font-size: $h5-font-size-device; // ?? add this
+		}
+
+	}
+
+%h6, .h6, h6 {
+	font-size: $h6-font-size; // 20px
+	line-height: $h6-line-height;
+
+    // tablet-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, tablet-large)) {
+        font-size: $h6-font-size-device; // ?? add this
+		}
+
+	}
+
+
+//////// General ////////
+
+i:not([class]) { font-style: italic; }
+
+small { font-size: .8em; }
+
+strong { font-weight: $bold; }
+
+p { margin-bottom: map-get($content-margins, base-typography-margins); }
+
+
+//////// Lists ////////
+
+ol:not([class]), ul:not([class]) {
+	padding-left: map-get($content-margins, base-typography-margins);
+	margin-bottom: map-get($content-margins, base-typography-margins);
+	list-style-position: outside;
+
+    &.no-indent { padding-left: .7em; }
+
+	&:last-child { margin-bottom: 0; }
+
+	li {
+		margin-bottom: map-get($content-margins, small-typography-margins);
+
+		&:last-child { margin-bottom: 0; }
+
+		}
+
+	}
+
+ol {
+
+    li { list-style-type: decimal; }
+
+	}
+
+ul {
+	list-style-type: none;
+
+	li {
+		position: relative;
+		padding-left: rem(5px);
+
+        &:not([class]) {
+
+            &:before {
+    			content: "";
+    			display: block;
+    			position: absolute;
+    			top: 0.6em;
+    			left: -0.6em;
+    			width: rem(6px);
+    			height: rem(6px);
+    			@include border-radius(100%);
+    			background-color: map-get($colors, base-font-color);
+    			}
+
+            }
+
+		}
+
+	}
+
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+
+    &.trade, &.reg { font-size: 40%; }
+
+    }
+
+sup {
+    top: -0.5em;
+
+    &.trade, &.reg { top: -1.5em; }
+
+    }
+
+sub { bottom: -0.25em; }

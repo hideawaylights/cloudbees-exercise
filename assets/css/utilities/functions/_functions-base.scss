@@ -1,0 +1,58 @@
+
+
+// Vars used in global functions
+$em-base:   16px !default;
+
+
+//////// Removes any unit(px, em, rem) from a number. Sometimes useful when trying to use a variable inside another mixin. ////////
+// $number - The number with unit you would like striped.
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+
+//////// Calculate percentage based on two values // Usage: width: calc-percent(220px, 1380px);
+@function calc-percent($target, $container) {
+    @return $target / $container * 100%;
+    }
+
+
+//////// Legacy code - CONSIDER REMOVING ////////
+////////////////////////////////////////////////////////
+
+
+// Add percentage of white to a color
+@function tint($color, $percent){
+    @return mix(white, $color, $percent);
+    }
+
+// Add percentage of black to a color
+@function shade($color, $percent){
+    @return mix(black, $color, $percent);
+    }
+
+// grab colors from $colors map
+@function color($key) {
+@if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+}
+@warn "Unknown `#{$key}` in $colors.";
+    @return null;
+    }
+
+// grab fonts from $fonts map
+@function font($key) {
+    @if map-has-key($fonts, $key) {
+        @return map-get($fonts, $key);
+    }
+    @warn "Unknown `#{$key}` in $fonts.";
+        @return null;
+    }
+
+@function font-weight($key) {
+    @if map-has-key($fonts-weight, $key) {
+        @return map-get($fonts-weight, $key);
+    }
+    @warn "Unknown `#{$key}` in $fonts-weight.";
+        @return null;
+    }

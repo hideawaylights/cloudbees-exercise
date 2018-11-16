@@ -1,0 +1,379 @@
+// Theming utilities for backgrounds and borders
+
+//////// Sections ////////
+// 1. Backgrounds
+// 2. Tonal Backgrounds - note needs updating
+// 3. Borders
+// 4. Type & Text
+//////// ////////
+
+
+
+
+////////////////////
+// 1. Backgrounds //
+////////////////////
+
+
+///////// Background theme controls blue /////////
+
+.\--blue-background-1 {
+	color: color('white');
+	background-color: color('brand-blue-1');
+	}
+
+.\--blue-background-2 {
+	color: color('white');
+	background-color: color('brand-blue-2');
+	}
+
+.\--blue-background-3 {
+	color: color('white');
+	background-color: color('brand-blue-3');
+	}
+
+.\--blue-background-4 {
+	color: color('white');
+	background-color: color('brand-blue-4');
+	}
+
+
+///////// Background theme controls orange /////////
+
+.\--orange-background-1 {
+	color: color('white');
+	background-color: color('brand-orange-1');
+	}
+
+
+
+///////// Background theme controls tan /////////
+
+.\--tan-background-1 {
+	color: color('view-charcoal');
+	background-color: color('brand-tan-1');
+	}
+
+.\--tan-background-2 {
+	color: color('white');
+	background-color: color('brand-tan-2');
+	}
+
+
+
+///////// Background theme controls green /////////
+
+.\--green-background-1 {
+	color: color('white');
+	background-color: color('brand-green-1');
+	}
+
+
+///////// Background theme controls grey /////////
+
+.\--grey-background-1 {
+	background-color: color('bg-grey-1');
+	}
+
+.\--grey-background-2 {
+	background-color: color('bg-grey-2');
+	}
+
+.\--grey-background-3 {
+	background-color: color('bg-grey-3');
+	}
+
+.\--grey-background-4 {
+	color: color('white');
+	background-color: color('bg-grey-4');
+	}
+
+.\--grey-background-5 {
+	color: color('white');
+	background-color: color('bg-grey-5');
+	}
+
+.\--grey-background-6 {
+	color: color('white');
+	background-color: color('bg-grey-6');
+	}
+
+.\--grey-background-7 {
+	color: color('white');
+	background-color: color('bg-grey-7');
+	}
+
+.\--grey-background-8 {
+	color: color('white');
+	background-color: color('bg-grey-8');
+	}
+
+.\--grey-background-9 {
+	color: color('white');
+	background-color: color('bg-grey-9');
+	}
+
+
+
+//////////////////////////
+// 2. Tonal Backgrounds //
+//////////////////////////
+
+
+// MIGRATE TO VIEW SPECTURM Colors tonal specturm - migrate to _vars.scss and make part of map-get $colors after launch of blog  //
+
+///////// Tonal vars /////////
+
+// Brand tonals - Orange
+$orange-tone-1:	#bd500a;
+$orange-tone-2:	#d55a0c;
+$orange-tone-3:	#ee650d;
+$orange-tone-4:	#f37321; // Brand color
+$orange-tone-5:	#f48239;
+$orange-tone-6:	#f69251;
+$orange-tone-7:	#f7a16a;
+
+
+// Brand tonals - Gray
+$gray-tone-1:	#393a3b;
+$gray-tone-2:	#464748;
+$gray-tone-3:	#525355;
+$gray-tone-4:	#5f6062; // Brand color
+$gray-tone-5:	#6c6d6f;
+$gray-tone-6:	#78797c;
+$gray-tone-7:	#858689;
+
+
+// Brand tonals - Green
+$green-tone-1:	#6c7f29;
+$green-tone-2:	#7c922f;
+$green-tone-3:	#8da635;
+$green-tone-4:	#9db93b; // Brand color
+$green-tone-5:	#a9c549;
+$green-tone-6:	#b2cb5c;
+$green-tone-7:	#bbd16f;
+
+
+// Brand tonals - Blue
+$blue-tone-1:	#007792;
+$blue-tone-2:	#008cab;
+$blue-tone-3:	#00a1c5;
+$blue-tone-4:	#00b6de; // Brand color
+$blue-tone-5:	#00cbf8;
+$blue-tone-6:	#12d4ff;
+$blue-tone-7:	#2cd9ff;
+
+
+// Brand tonals - Yellow
+$yellow-tone-1:	#a88a00;
+$yellow-tone-2:	#c19f00;
+$yellow-tone-3:	#dbb400;
+$yellow-tone-4:	#f4c900; // Brand color
+$yellow-tone-5:	#ffd50f;
+$yellow-tone-6:	#ffd928;
+$yellow-tone-7:	#ffde42;
+
+
+// Brand tonals - Magenta
+$magenta-tone-1:	#940f85;
+$magenta-tone-2:	#ab1199;
+$magenta-tone-3:	#c214ae;
+$magenta-tone-4:	#d916c3; // Brand color
+$magenta-tone-5:	#e820d2;
+$magenta-tone-6:	#eb37d6;
+$magenta-tone-7:	#ed4edb;
+
+
+///////// Tonal classes /////////
+
+// Orange
+.\--orange-bg-tone-1 { background-color: $orange-tone-1; }
+.\--orange-bg-tone-2 { background-color: $orange-tone-2; }
+.\--orange-bg-tone-3 { background-color: $orange-tone-3; }
+.\--orange-bg-tone-4 { background-color: $orange-tone-4; }
+.\--orange-bg-tone-5 { background-color: $orange-tone-5; }
+.\--orange-bg-tone-7 { background-color: $orange-tone-6; }
+.\--orange-bg-tone-7 { background-color: $orange-tone-7; }
+
+
+// Gray
+.\--gray-bg-tone-1 { background-color: $gray-tone-1; }
+.\--gray-bg-tone-2 { background-color: $gray-tone-2; }
+.\--gray-bg-tone-3 { background-color: $gray-tone-3; }
+.\--gray-bg-tone-4 { background-color: $gray-tone-4; }
+.\--gray-bg-tone-5 { background-color: $gray-tone-5; }
+.\--gray-bg-tone-7 { background-color: $gray-tone-6; }
+.\--gray-bg-tone-7 { background-color: $gray-tone-7; }
+
+
+// Green
+.\--green-bg-tone-1 { background-color: $green-tone-1; }
+.\--green-bg-tone-2 { background-color: $green-tone-2; }
+.\--green-bg-tone-3 { background-color: $green-tone-3; }
+.\--green-bg-tone-4 { background-color: $green-tone-4; }
+.\--green-bg-tone-5 { background-color: $green-tone-5; }
+.\--green-bg-tone-7 { background-color: $green-tone-6; }
+.\--green-bg-tone-7 { background-color: $green-tone-7; }
+
+
+// Blue
+.\--blue-bg-tone-1 { background-color: $blue-tone-1; }
+.\--blue-bg-tone-2 { background-color: $blue-tone-2; }
+.\--blue-bg-tone-3 { background-color: $blue-tone-3; }
+.\--blue-bg-tone-4 { background-color: $blue-tone-4; }
+.\--blue-bg-tone-5 { background-color: $blue-tone-5; }
+.\--blue-bg-tone-7 { background-color: $blue-tone-6; }
+.\--blue-bg-tone-7 { background-color: $blue-tone-7; }
+
+
+// Yellow
+.\--yellow-bg-tone-1 { background-color: $yellow-tone-1; }
+.\--yellow-bg-tone-2 { background-color: $yellow-tone-2; }
+.\--yellow-bg-tone-3 { background-color: $yellow-tone-3; }
+.\--yellow-bg-tone-4 { background-color: $yellow-tone-4; }
+.\--yellow-bg-tone-5 { background-color: $yellow-tone-5; }
+.\--yellow-bg-tone-7 { background-color: $yellow-tone-6; }
+.\--yellow-bg-tone-7 { background-color: $yellow-tone-7; }
+
+
+// Magenta
+.\--magenta-bg-tone-1 { background-color: $magenta-tone-1; }
+.\--magenta-bg-tone-2 { background-color: $magenta-tone-2; }
+.\--magenta-bg-tone-3 { background-color: $magenta-tone-3; }
+.\--magenta-bg-tone-4 { background-color: $magenta-tone-4; }
+.\--magenta-bg-tone-5 { background-color: $magenta-tone-5; }
+.\--magenta-bg-tone-7 { background-color: $magenta-tone-6; }
+.\--magenta-bg-tone-7 { background-color: $magenta-tone-7; }
+
+
+// /end Colors tonal specturm //
+
+
+////////////////
+// 3. Borders //
+////////////////
+
+///////// Border top theme controls /////////
+
+.\--grey-border-top {
+	border-top: solid rem(1px) color('border-grey-4'); // Default site borders
+	}
+
+.\--grey-border-top-1 {
+	border-top: solid rem(1px) color('border-grey-1');
+	}
+
+.\--grey-border-top-2 {
+	border-top: solid rem(1px) color('border-grey-2');
+	}
+
+.\--grey-border-top-3 {
+	border-top: solid rem(1px) color('border-grey-3');
+	}
+
+.\--grey-border-top-4 {
+	border-top: solid rem(1px) color('border-grey-4');
+	}
+
+.\--grey-border-top-5 {
+	border-top: solid rem(1px) color('border-grey-5');
+	}
+
+.\--grey-border-top-6 {
+	border-top: solid rem(1px) color('border-grey-6');
+	}
+
+.\--grey-border-top-7 {
+	border-top: solid rem(1px) color('border-grey-7');
+	}
+
+.\--grey-border-top-8 {
+	border-top: solid rem(1px) color('border-grey-8');
+	}
+
+.\--grey-border-top-9 {
+	border-top: solid rem(1px) color('border-grey-9');
+	}
+
+
+
+///////// Border bottom theme controls /////////
+
+.\--grey-border-bottom {
+	border-bottom: solid rem(1px) color('border-grey-4'); // Default site borders
+	}
+
+.\--grey-border-bottom-1 {
+	border-bottom: solid rem(1px) color('border-grey-1');
+	}
+
+.\--grey-border-bottom-2 {
+	border-bottom: solid rem(1px) color('border-grey-2');
+	}
+
+.\--grey-border-bottom-3 {
+	border-bottom: solid rem(1px) color('border-grey-3');
+	}
+
+.\--grey-border-bottom-4 {
+	border-bottom: solid rem(1px) color('border-grey-4');
+	}
+
+.\--grey-border-bottom-5 {
+	border-bottom: solid rem(1px) color('border-grey-5');
+	}
+
+.\--grey-border-bottom-6 {
+	border-bottom: solid rem(1px) color('border-grey-6');
+	}
+
+.\--grey-border-bottom-7 {
+	border-bottom: solid rem(1px) color('border-grey-7');
+	}
+
+.\--grey-border-bottom-8 {
+	border-bottom: solid rem(1px) color('border-grey-8');
+	}
+
+.\--grey-border-bottom-9 {
+	border-bottom: solid rem(1px) color('border-grey-9');
+	}
+
+
+
+////////////////////
+// 4. Type & Text //
+///////////////////
+
+// Base
+.color-base { color: color('base-font-color'); }
+
+.color-alt { color: color('alt-font-color'); }
+
+.color-white { color: color('white'); }
+
+
+// Blues
+.color-blue-0 { color: color('brand-blue-0'); }
+
+.color-blue-1 { color: color('brand-blue-1'); }
+
+.color-blue-2 { color: color('brand-blue-2'); }
+
+.color-blue-3 { color: color('brand-blue-3'); }
+
+.color-blue-4 { color: color('brand-blue-4'); }
+
+
+// Tan
+.color-tan-1 { color: color('brand-tan-1'); }
+
+.color-tan-2 { color: color('brand-tan-2'); }
+
+
+// Green
+.color-green-1 { color: color('brand-green-1'); }
+
+
+// Orange
+.color-orange-1 { color: color('brand-orange-1'); }

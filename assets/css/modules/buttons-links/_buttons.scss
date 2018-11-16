@@ -1,0 +1,152 @@
+// View Glass - Base buttons
+
+
+a[class*="button"], input[type="button"], button:not([class]), %button {
+	@extend %button-reset;
+	text-decoration: none;
+	letter-spacing: $letter-spacing-3;
+	display: inline-block;
+	position: relative;
+	font-weight: $medium;
+	cursor: pointer;
+	outline: none;
+	line-height: 1.5;
+	text-align: center;
+    text-transform: uppercase;
+    @include border-radius(2px);
+	@include transitions-all;
+
+    // Default sizing
+    font-size: $base-font-size; // 16px
+    padding: rem(10px) rem(30px);
+
+	// mobile-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, mobile-large)) {
+		font-size: $small-font-size;
+		}
+
+//////// Base Button thememing options ////////
+
+	&.\--floating, %button--floating {
+		@include depth(one);
+		@include transitions-all(300ms);
+
+		&:hover {
+            @include depth(three);
+			transform: translate(0, -1px);
+			}
+
+        &:focus { @include transitions-none; }
+
+		}
+
+    &.\--no-radius-left {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		}
+
+	&.\--no-radius-right {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		}
+
+
+//////// Size options for buttons ////////
+
+	&.\--tiny, %button--tiny {
+	    font-size: $smallest-font-size; // 12px
+	    padding: rem(3px) rem(15px);
+		text-transform: none;
+	    }
+
+	&.\--small, %button--small {
+	    font-size: $small-font-size; // 14px
+        padding: rem(6px) rem(20px);
+	    }
+
+	 &.\--large, %button--large {
+
+		// tablet-large and up / device breakpoint styling
+    	@include media(min, map-get($breakpoints, tablet-large)) {
+			font-size: $base-font-size-3; // 20px
+		    padding: rem(14px) rem(55px);
+			}
+
+	    }
+
+	&.\--xlarge, %button--xlarge {
+
+		// tablet-large and up / device breakpoint styling
+    	@include media(min, map-get($breakpoints, tablet-large)) {
+			font-size: $large-font-size; // 22px
+		    padding: rem(16px) rem(60px);
+			}
+
+   	    }
+
+	&.\--full-width, %button--full-width {
+		display: block;
+		width: 100%;
+		}
+
+
+//////// Change padding on buttons with icons ////////
+
+	&.\--icon-after, &.\--icon-before {
+		position: relative;
+		}
+
+	&.\--icon-after {
+		padding-right: 50px !important;
+
+		[class*="icon"] {
+			right: rem(15px);
+			}
+
+		}
+
+	&.\--icon-before {
+		padding-left: 50px !important;
+
+		[class*="icon"] {
+			left: rem(15px);
+			}
+
+		}
+
+	// Treatment for icons with buttons
+	[class*="icon"] {
+		font-size: 1.7em;
+		top: 50%;
+		position: absolute;
+		@include translateX-Y(0, -50%);
+		}
+
+	// Treatment for icons with buttons
+	.icon-arrow:before {
+		font-size: .9em;
+		padding: 0 0 0 rem(5px);
+		}
+
+    } // /end [class*="button"], input[type="button"]
+
+
+.button-bar {
+
+	// Inline treatment of buttons that are side by side
+	[class*="button"], input[type="button"] {
+		margin: 0 rem(10px);
+		}
+
+	// mobile-large and down / device breakpoint styling
+	@include media(max, map-get($breakpoints, mobile-large)) {
+
+		// Inline treatment of buttons that are side by side
+		[class*="button"], input[type="button"] {
+			display: block;
+			margin: rem(30px) rem(10px);
+			}
+
+		}
+
+	}
