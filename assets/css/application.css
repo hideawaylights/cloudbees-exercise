@@ -3847,26 +3847,22 @@ readers do not read off random characters that represent icons */
 
 .\--blue-background-2 {
   color: #fff;
-  background-color: #317cad; }
+  background-color: #1991cc; }
 
 .\--blue-background-3 {
   color: #fff;
-  background-color: #33647e; }
+  background-color: #1991cc; }
 
 .\--blue-background-4 {
   color: #fff;
-  background-color: #334047; }
+  background-color: #186eaf; }
 
 .\--orange-background-1 {
   color: #fff;
   background-color: #f05b43; }
 
-.\--tan-background-1 {
-  background-color: #d6d2c9; }
-
 .\--tan-background-2 {
-  color: #fff;
-  background-color: #75787a; }
+  color: #fff; }
 
 .\--green-background-1 {
   color: #fff;
@@ -4107,19 +4103,13 @@ readers do not read off random characters that represent icons */
   color: #0972a7; }
 
 .color-blue-2 {
-  color: #317cad; }
+  color: #1991cc; }
 
 .color-blue-3 {
-  color: #33647e; }
+  color: #1991cc; }
 
 .color-blue-4 {
-  color: #334047; }
-
-.color-tan-1 {
-  color: #d6d2c9; }
-
-.color-tan-2 {
-  color: #75787a; }
+  color: #186eaf; }
 
 .color-green-1 {
   color: #2db068; }
@@ -7529,8 +7519,8 @@ a[class*="button"], input[type="button"], button:not([class]) {
       color: #fff;
       background-color: #075b85; }
     a[class*="button"].\--blue-1.\--inverse, input[type="button"].\--blue-1.\--inverse, button:not([class]).\--blue-1.\--inverse {
-      color: #317cad;
-      border-color: #317cad;
+      color: #1991cc;
+      border-color: #1991cc;
       background-color: transparent; }
       a[class*="button"].\--blue-1.\--inverse:hover, a[class*="button"].\--blue-1.\--inverse.active, a[class*="button"].\--blue-1.\--inverse .is-active, input[type="button"].\--blue-1.\--inverse:hover, input[type="button"].\--blue-1.\--inverse.active, input[type="button"].\--blue-1.\--inverse .is-active, button:not([class]).\--blue-1.\--inverse:hover, button:not([class]).\--blue-1.\--inverse.active, button:not([class]).\--blue-1.\--inverse .is-active {
         color: #fff;
@@ -7538,43 +7528,43 @@ a[class*="button"], input[type="button"], button:not([class]) {
         background-color: #075b85; }
   a[class*="button"].\--blue-2, input[type="button"].\--blue-2, button:not([class]).\--blue-2 {
     color: #fff;
-    background-color: #317cad; }
+    background-color: #1991cc; }
     a[class*="button"].\--blue-2:hover, a[class*="button"].\--blue-2.active, a[class*="button"].\--blue-2 .is-active, input[type="button"].\--blue-2:hover, input[type="button"].\--blue-2.active, input[type="button"].\--blue-2 .is-active, button:not([class]).\--blue-2:hover, button:not([class]).\--blue-2.active, button:not([class]).\--blue-2 .is-active {
-      background-color: #296891; }
+      background-color: #157aac; }
     a[class*="button"].\--blue-2.\--inverse, input[type="button"].\--blue-2.\--inverse, button:not([class]).\--blue-2.\--inverse {
-      color: #317cad;
-      border-color: #317cad;
+      color: #1991cc;
+      border-color: #1991cc;
       background-color: transparent; }
       a[class*="button"].\--blue-2.\--inverse:hover, a[class*="button"].\--blue-2.\--inverse .active, a[class*="button"].\--blue-2.\--inverse .is-active, input[type="button"].\--blue-2.\--inverse:hover, input[type="button"].\--blue-2.\--inverse .active, input[type="button"].\--blue-2.\--inverse .is-active, button:not([class]).\--blue-2.\--inverse:hover, button:not([class]).\--blue-2.\--inverse .active, button:not([class]).\--blue-2.\--inverse .is-active {
         color: #fff;
-        border-color: #296891;
-        background-color: #296891; }
+        border-color: #157aac;
+        background-color: #157aac; }
   a[class*="button"].\--blue-3, input[type="button"].\--blue-3, button:not([class]).\--blue-3 {
     color: #fff;
-    background-color: #33647e; }
+    background-color: #1991cc; }
     a[class*="button"].\--blue-3:hover, a[class*="button"].\--blue-3.active, a[class*="button"].\--blue-3 .is-active, input[type="button"].\--blue-3:hover, input[type="button"].\--blue-3.active, input[type="button"].\--blue-3 .is-active, button:not([class]).\--blue-3:hover, button:not([class]).\--blue-3.active, button:not([class]).\--blue-3 .is-active {
-      background-color: #295065; }
+      background-color: #157aac; }
     a[class*="button"].\--blue-3.\--inverse, input[type="button"].\--blue-3.\--inverse, button:not([class]).\--blue-3.\--inverse {
-      color: #33647e;
-      border-color: #33647e;
+      color: #1991cc;
+      border-color: #1991cc;
       background-color: transparent; }
       a[class*="button"].\--blue-3.\--inverse:hover, a[class*="button"].\--blue-3.\--inverse.active, a[class*="button"].\--blue-3.\--inverse .is-active, input[type="button"].\--blue-3.\--inverse:hover, input[type="button"].\--blue-3.\--inverse.active, input[type="button"].\--blue-3.\--inverse .is-active, button:not([class]).\--blue-3.\--inverse:hover, button:not([class]).\--blue-3.\--inverse.active, button:not([class]).\--blue-3.\--inverse .is-active {
         color: #fff;
-        border-color: #295065;
-        background-color: #295065; }
+        border-color: #157aac;
+        background-color: #157aac; }
   a[class*="button"].\--blue-4, input[type="button"].\--blue-4, button:not([class]).\--blue-4 {
     color: #fff;
-    background-color: #334047; }
+    background-color: #186eaf; }
     a[class*="button"].\--blue-4:hover, a[class*="button"].\--blue-4.active, a[class*="button"].\--blue-4 .is-active, input[type="button"].\--blue-4:hover, input[type="button"].\--blue-4.active, input[type="button"].\--blue-4 .is-active, button:not([class]).\--blue-4:hover, button:not([class]).\--blue-4.active, button:not([class]).\--blue-4 .is-active {
-      background-color: #242d32; }
+      background-color: #145a90; }
     a[class*="button"].\--blue-4.\--inverse, input[type="button"].\--blue-4.\--inverse, button:not([class]).\--blue-4.\--inverse {
-      color: #334047;
-      border-color: #334047;
+      color: #186eaf;
+      border-color: #186eaf;
       background-color: transparent; }
       a[class*="button"].\--blue-4.\--inverse:hover, a[class*="button"].\--blue-4.\--inverse.active, a[class*="button"].\--blue-4.\--inverse .is-active, input[type="button"].\--blue-4.\--inverse:hover, input[type="button"].\--blue-4.\--inverse.active, input[type="button"].\--blue-4.\--inverse .is-active, button:not([class]).\--blue-4.\--inverse:hover, button:not([class]).\--blue-4.\--inverse.active, button:not([class]).\--blue-4.\--inverse .is-active {
         color: #fff;
-        border-color: #242d32;
-        background-color: #242d32; }
+        border-color: #145a90;
+        background-color: #145a90; }
 
 a.card-item {
   display: block;
@@ -7620,7 +7610,7 @@ a.card-item {
       position: absolute;
       width: 0.3125rem;
       height: 1.1em;
-      background-color: #317cad; }
+      background-color: #1991cc; }
     .card-item .card-header a {
       color: #313a44; }
   .card-item .card-media-container {
@@ -7662,15 +7652,11 @@ a.card-item {
   .card-item.\--card-theme-blue-1 .card-header:before {
     background-color: #0972a7; }
   .card-item.\--card-theme-blue-2 .card-header:before {
-    background-color: #317cad; }
+    background-color: #1991cc; }
   .card-item.\--card-theme-blue-3 .card-header:before {
-    background-color: #33647e; }
+    background-color: #1991cc; }
   .card-item.\--card-theme-blue-4 .card-header:before {
-    background-color: #334047; }
-  .card-item.\--card-theme-tan-1 .card-header:before {
-    background-color: #d6d2c9; }
-  .card-item.\--card-theme-tan-2 .card-header:before {
-    background-color: #75787a; }
+    background-color: #186eaf; }
   .card-item.\--card-theme-orange-1 .card-header:before {
     background-color: #f05b43; }
   .card-item.\--card-theme-green-1 .card-header:before {
